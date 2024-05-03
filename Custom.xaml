@@ -1,0 +1,67 @@
+﻿
+<!-- 这是 PCL2 的主页自定义文件。你可以通过修改这个文件来自定义 PCL2 主页：添加文本、打开网页、启动游戏，等等。
+     如果你倒腾这个文件把 PCL2 玩炸了，把这个文件直接删除就行了。
+     如果你懂得 WPF 的布局文件编写，你甚至可以做出不少的新玩意儿…… -->
+
+<local:MyCard Title="检查更新 - 当前你的版本为:1.0.1" Margin="0,0,0,15" CanSwap="False" IsSwaped="True" >
+    <StackPanel Margin="25,40,23,15">
+		<TextBlock Margin="0,0,0,4" Width="320" HorizontalAlignment="Left"
+                   Text="最新版本为" />
+        <Image Height="24" HorizontalAlignment="Left" Source="https://kapusite.github.io/test/v.png" />
+        <TextBlock TextWrapping="Wrap"
+                   Text="下载最新版本的 遥远的幻想乡" />
+        <local:MyButton Width="140" Height="35" HorizontalAlignment="Left" Padding="13,0,13,0"
+                   Text="下载页面" EventType="打开网页" EventData="https://kapusite.github.io/test/index.html" />
+<local:MyButton Margin="0,4,0,8" Width="200" Height="35"
+                    Text="打开记事本" EventType="打开文件" EventData="notepad.exe" />
+    </StackPanel>
+</local:MyCard>
+    
+<local:MyCard Title="沉入幻想的世界">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock Margin="0,0,0,4" Width="320" HorizontalAlignment="Center"
+                   Text="" />
+        <Image Height="100" HorizontalAlignment="Center" Source="https://kapusite.github.io/test/head.png" />
+<TextBlock TextWrapping="Wrap" Text="" />
+ <Image Height="700" HorizontalAlignment="Center" Source="https://kapusite.github.io/test/out.png" />
+    </StackPanel>
+</local:MyCard>
+    
+<!-- 
+
+全部通用的属性：
+ - Width、Height：设置宽度与高度
+ - ToolTip：设置鼠标指向时的提示文本
+ - Foreground：调整前景颜色（十六进制字符串，例如 #FF010203 代表 ARGB 中的 255,1,2,3。前两位代表不透明度，FF 为全不透明，00 为全透明）
+ - Background：调整背景颜色（使用类似 Background="{DynamicResource ColorBrush5}" 的格式以调用 PCL2 当前的主题颜色，修改末尾的数字编号以改变颜色浓度）
+ - Margin：调整外边距（格式为 左,上,右,下。例如 Margin="0,0,0,2" 即为 2 单位的下边距）
+ - HorizontalAlignment：设置对齐方式（Left、Center、Right）
+
+TextBlock（纯文本）：
+ - Text：设置显示的文本（如果要使用引号等特殊字符，自行百度 XAML 转义）
+ - TextWrapping：开启自动换行
+ - FontSize：设置字号
+ 
+Image（图片）：
+ - Source：要显示的图片的网址
+
+local:MyHint（提示条）：
+ - Text：设置显示的文本（&#xA; 代表换行）
+ - IsWarn：设置为 True 代表警告样式，False 代表提示样式
+ 
+local:MyButton（按钮）：
+ - Text：设置显示的文本
+ - Padding：设置内边距，格式与 Margin 一致
+ - ColorType：设置颜色主题（Highlight 为当前启动器的主题颜色，Red 为红色，默认为黑色）
+ - EventType、EventData：触发特定事件
+ 
+local:MyTextButton（文本按钮）：
+ - Text：设置显示的文本
+ - EventType、EventData：触发特定事件
+ 
+local:MyCard（卡片）：
+ - Title：设置显示的标题文本
+ - CanSwap：这张卡片是否可以折叠，True 为是，False 为否
+ - IsSwaped：这张卡片是否默认折叠，要求 CanSwap 必须为 True
+
+-->
